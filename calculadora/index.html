@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora - Theo Marques</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .fundo{
+            background-image: url(images.png);
+            background-position: center;
+            background-size: 100%;;
+            background-color: rgb(149, 149, 7);
+            height: 100vh;
+            color: rgb(72, 128, 192);
+            text-align: center;
+            font-family: 'Impact', sans-serif;
+        }
+        .compostoV{
+            padding-top: 70px;
+        }
+        .tampa{
+            position: absolute;
+            background: radial-gradient(circle, #b9b9b9 0%, #585757 100%);
+            top: 22.2%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 15px;
+            padding: 15px;
+        }
+        .vidro{
+            position: absolute;
+            background-color: rgba(75, 97, 118, 0.4);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 40px;
+            padding: 15px;
+        }
+        .js-btn-padroes{
+            width: 50px;
+            height: 50px;
+            font-size: 25px;
+            cursor: pointer;
+            background-color: rgb(72, 128, 192);
+            border: none;
+            border-radius: 50%;
+            color: #ebebeb;
+            margin: 3px;
+        }
+        .js-btn-padroes:hover{
+            background-color: rgb(8, 45, 78);
+        }
+        .js-btn-porcentagem{
+            width: 50px;
+            height: 50px;
+            font-size: 25px;
+            cursor: pointer;
+            background-color: rgb(72, 128, 192);
+            border: none;
+            border-radius: 50%;
+            color: #ebebeb;
+            margin: 3px;
+        }
+        .js-btn-porcentagem:hover{
+            background-color: rgb(8, 45, 78);
+        }
+        #lateral{
+            background-color:  rgb(17, 88, 150);
+        }
+        #lateral:hover{
+            background-color: rgb(72, 128, 192);
+        }
+        .js-btn-mais-menos{
+            width: 50px;
+            height: 50px;
+            font-size: 25px;
+            cursor: pointer;
+            background-color: rgb(72, 128, 192);
+            border: none;
+            border-radius: 50%;
+            color: #ebebeb;
+            margin: 3px;
+        }
+        .js-btn-mais-menos:hover{
+            background-color: rgb(8, 45, 78);
+        }
+        .js-btn-ac{
+            width: 50px;
+            height: 50px;
+            font-size: 25px;
+            cursor: pointer;
+            background-image: url(capitaopatrialaser.webp);
+            background-position: center;
+            background-size: cover;
+            border: none;
+            border-radius: 50%;
+            color: rgba(98, 8, 140, 0.8);
+            margin: 3px;
+        }
+        .js-btn-ac:hover{
+            background-color: rgb(159, 84, 217);
+            color: rgb(49, 4, 49);
+        }
+        .js-btn-del{
+            width: 50px;
+            height: 50px;
+            font-size: 25px;
+            cursor: pointer;
+            background-color: rgb(72, 128, 192);
+            border: none;
+            border-radius: 50%;
+            color: #ebebeb;
+            margin: 3px;
+        }
+        .js-btn-del:hover{
+            background-color: rgb(8, 45, 78);
+        }
+        .js-btn-igual{
+            width: 50px;
+            height: 50px;
+            font-size: 25px;
+            cursor: pointer;
+            background-color: rgb(8, 45, 78);
+            border: none;
+            border-radius: 50%;
+            color: #ebebeb;
+            margin: 3px;
+        }
+        .js-btn-igual:hover{
+            background-color: rgb(72, 128, 192);
+        }
+        .js-resultado{
+            background: none;
+            width: 207px;
+            height: 30px;
+            margin: 5px;
+            font-size: 25px;
+            color: #ebebeb;
+            text-align: right;
+            padding: 5px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="fundo">
+        <div class="calculadora">
+            <h1 class="compostoV"><small>COMPOSTO</small> V</h1>
+            <div class="tampa">
+                <input type="text" placeholder="0" class="js-resultado" readonly>
+            </div>
+            <div class="vidro">
+            <table>
+                <tr>
+                    <td><button class="botoes_iniciais js-btn-ac"></button></td>
+                    <td><button class="botoes_iniciais js-btn-del">C</button></td>
+                    <td><button class="js-btn-porcentagem" data-valor="%">%</button></td>
+                    <td><button class="js-btn-padroes" data-valor="/" id="lateral">÷</button></td>
+                </tr>
+                <td>
+                    <button class="js-btn-padroes" data-valor="7">7</button></td>
+                    <td><button class="js-btn-padroes" data-valor="8">8</button></td>
+                    <td><button class="js-btn-padroes" data-valor="9">9</button></td>
+                    <td><button class="js-btn-padroes" data-valor="*" id="lateral">X</button></td>
+                </tr>
+                <tr>
+                    <td><button class="js-btn-padroes" data-valor="4">4</button></td>
+                    <td><button class="js-btn-padroes" data-valor="5">5</button></td>
+                    <td><button class="js-btn-padroes" data-valor="6">6</button></td>
+                    <td><button class="js-btn-padroes" data-valor="-" id="lateral">-</button></td>
+                </tr>
+                <tr>
+                    <td><button class="js-btn-padroes" data-valor="1">1</button></td>
+                    <td><button class="js-btn-padroes" data-valor="2">2</button></td>
+                    <td><button class="js-btn-padroes" data-valor="3">3</button></td>
+                    <td><button class="js-btn-padroes" data-valor="+" id="lateral">+</button></td>
+                </tr>
+                <tr>
+                    <td><button class="botoes_iniciais js-btn-mais-menos">+/-</button></td>
+                    <td><button class="js-btn-padroes" data-valor="0">0</button></td>
+                    <td><button class="js-btn-padroes" data-valor=".">.</button></td>
+                    <td><button class="js-btn-igual">=</button></td>
+                </tr>
+            </table>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
